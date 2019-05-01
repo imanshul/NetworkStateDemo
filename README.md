@@ -2,6 +2,8 @@
 
 A simple way to handle connectivity of application.
 
+![alt text](https://github.com/imanshul/NetworkStateDemo/blob/master/demo_gif.gif "Network Checker Dialog GIF")
+
 ## Setup
 ### Gradle :
 ##### Step 1 :
@@ -43,7 +45,7 @@ Add the JitPack repository to your build file
   ```
   
   ## Usage
-  Create the object of InternetStateChecker. It will automatically show a dialog box if your Internet connection is established or lost.
+  Create the object of InternetStateChecker. It will automatically show a dialog box if your Internet connection is lost.
   ```java
 InternetStateChecker internetStateChecker = new InternetStateChecker.Builder(this).build();
   ```
@@ -77,15 +79,13 @@ Customize the dialog box as :
 					.setDialogTitle("No Internet")
 					.setCancelable(true)
 					.setDialogBgColor(R.color.colorRed)
-					.setDialogTextColor(R.color.colorAccent)
+					.setDialogTextColor(R.color.colorWhite)
 					.setDialogIcon(R.drawable.ic_mood_bad_black_46dp)
 					.setDialogMessage("Internet connection lost")
 					.build();
  ```
 
-
-![alt text](https://github.com/imanshul/NetworkStateDemo/blob/master/InternetConnection.png "Network Checker Dialog")
-
+![alt text](https://github.com/imanshul/NetworkStateDemo/blob/master/InternetConnection.png "Network Checker Dialog") 	
 
 
 ## LICENSE
