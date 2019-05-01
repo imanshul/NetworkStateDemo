@@ -13,12 +13,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        checker = new InternetStateChecker(this);
+        checker = new InternetStateChecker.Builder(this).build();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        checker.onDestroy();
+        checker.stop();
     }
 }
