@@ -83,6 +83,11 @@ Customize the dialog box as :
 					.build();
  ```
 
+
+![alt text](https://github.com/imanshul/NetworkStateDemo/blob/master/InternetConnection.png "Network Checker Dialog")
+
+
+
 ## LICENSE
 ```
 MIT License
