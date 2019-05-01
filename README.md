@@ -6,7 +6,7 @@ A simple way to handle connectivity of application.
 ### Gradle :
 ##### Step 1 :
 Add the JitPack repository to your build file
-```
+```java
 allprojects {
 		repositories {
 			...
@@ -16,15 +16,15 @@ allprojects {
 ```
 ##### Step 2 :
 Add the dependency
-```
+```java
 dependencies {
-	        implementation 'com.github.imanshul:NetworkStateDemo:1.0'
+	        implementation 'com.github.imanshul:NetworkStateDemo:2.0'
 	}
 ```
 ### Maven :
 ##### Step 1 :
 Add the JitPack repository to your build file
-```
+```xml
 <repositories>
 		<repository>
 		    <id>jitpack.io</id>
@@ -34,28 +34,60 @@ Add the JitPack repository to your build file
   ```
   ##### Step 2 :
   Add the dependency
-  ```
+  ```xml
   <dependency>
 	    <groupId>com.github.imanshul</groupId>
 	    <artifactId>NetworkStateDemo</artifactId>
-	    <version>1.0</version>
+	    <version>2.0</version>
 	</dependency>
   ```
   
   ## Usage
-  Create the object of InternetStateChecker. It will automatically show a Toast message if your Internet connection is established or lost.
-  ```
-InternetStateChecker internetStateChecker = new InternetStateChecker(this);
+  Create the object of InternetStateChecker. It will automatically show a dialog box if your Internet connection is established or lost.
+  ```java
+InternetStateChecker internetStateChecker = new InternetStateChecker.Builder(this).build();
   ```
 and at the end add
-  ```
+  ```java
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        internetStateChecker.onDestroy();
+        internetStateChecker.stop();
     }
 
   ```
+Customize the dialog box as :
+  ```java
+.setDialogTitle() //To set Dialog Title
+.setCancelable() //Set cancelable status for dialog
+.setDialogBgColor() //Set background color of dialog box
+.setDialogTextColor() //Set text color of dialog box
+.setDialogIcon() //Change icon of dialog box
+.setDialogMessage() //set dialog message
+  ```
+### Methods
+ ```java
+ internetStateChecker.isConnected() //Returns true if connection is established otherwise returns false
+ 
+ ```
+  
+ ### Example
+  ```java
+  InternetStateChecker internetStateChecker = new InternetStateChecker.Builder(MainActivity.this)
+					.setDialogTitle("No Internet")
+					.setCancelable(true)
+					.setDialogBgColor(R.color.colorRed)
+					.setDialogTextColor(R.color.colorAccent)
+					.setDialogIcon(R.drawable.ic_mood_bad_black_46dp)
+					.setDialogMessage("Internet connection lost")
+					.build();
+ ```
+
+
+![alt text](https://github.com/imanshul/NetworkStateDemo/blob/master/InternetConnection.png "Network Checker Dialog")
+
+
+
 ## LICENSE
 ```
 MIT License
